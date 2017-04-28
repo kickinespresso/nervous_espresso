@@ -9,8 +9,6 @@ use Mix.Config
 # of this file so it overrides the configuration defined above.
 # Uncomment to use target specific configurations
 
-# import_config "#{Mix.Project.config[:target]}.exs"
-
 config :ui, Ui.Endpoint,
   http: [port: 80],
   url: [host: "localhost", port: 80],
@@ -18,6 +16,8 @@ config :ui, Ui.Endpoint,
   root: Path.dirname(__DIR__),
   server: true,
   render_errors: [accepts: ~w(html json)],
-  pubsub: [name: Nerves.PubSub]
+  pubsub: [name: Ui.PubSub,
+         adapter: Phoenix.PubSub.PG2]
 
 config :logger, level: :debug
+# import_config "#{Mix.Project.config[:target]}.exs"
