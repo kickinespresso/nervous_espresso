@@ -1,0 +1,6 @@
+<h2>Edit website</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: website_path(@conn, :update, @website) %>
+
+<%= link "Back", to: website_path(@conn, :index) %>
