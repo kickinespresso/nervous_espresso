@@ -1,0 +1,20 @@
+<h2>Listing websites</h2>
+
+<ul>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @website.url %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @website.title %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @website.description %>
+  </li>
+
+</ul>

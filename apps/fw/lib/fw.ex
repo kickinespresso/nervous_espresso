@@ -1,21 +1,17 @@
 defmodule Fw do
-  use Application
-
-  # See http://elixir-lang.org/docs/stable/elixir/Application.html
-  # for more information on OTP Applications
-  def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-
-    # Define workers and child supervisors to be supervised
-    children = [
-      # worker(Fw.Worker, [arg1, arg2, arg3]),
-      worker(Task, [fn -> Nerves.Networking.setup :eth0, [mode: "dhcp"] end], restart: :transient)
-    ]
-
-    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
-    # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Fw.Supervisor]
-    Supervisor.start_link(children, opts)
-  end
-
+  alias Nerves.Networking
+   # 
+  #  @interface :eth0
+   #
+  #  def start(_type, _args) do
+  #    unless :os.type == {:unix, :darwin} do     # don't start networking unless we're on nerves
+  #      {:ok, _} = Networking.setup @interface
+  #    end
+  #    {:ok, self()}
+  #  end
+   #
+  #  @doc "Attempts to perform a DNS lookup to test connectivity."
+  #  def test_dns(hostname \\ 'nerves-project.org') do
+  #    :inet_res.gethostbyname(hostname)
+  #  end
 end
