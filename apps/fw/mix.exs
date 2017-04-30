@@ -9,7 +9,7 @@ defmodule Fw.Mixfile do
   """, :reset])
   def project do
     [app: :fw,
-     version: "0.1.0",
+     version: "0.2.1",
      elixir: "~> 1.4.0",
      target: @target,
      archives: [nerves_bootstrap: "~> 0.3.0"],
@@ -37,7 +37,8 @@ defmodule Fw.Mixfile do
   end
   def application(_target) do
     [mod: {Fw.Application, []},
-     extra_applications: [:logger]]
+     extra_applications: [:logger],
+     included_applications: [:floki]]
   end
 
   # Dependencies can be Hex packages:
